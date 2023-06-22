@@ -1,0 +1,13 @@
+.DS_Store
+Thumbs.db
+.env
+
+/bootstrap
+/config
+/database
+/public
+/storage
+/tests
+/vendor
+
+/node_modules
