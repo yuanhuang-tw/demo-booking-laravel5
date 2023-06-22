@@ -10,17 +10,16 @@ use DB;
 
 class SearchController extends Controller
 {
-		public function search()
-		{
-				return view('interview.search');
-		}
+    public function search()
+    {
+        return view('interview.search');
+    }
 
-		public function searchOutput(SearchInterviewRequest $request)
-		{
-			 $interviews = Interview::whereBetween('i_date', [$request->date1, $request->date2])->orderBy('i_date', 'asc')
-																																													->orderBy(DB::raw('CAST(i_time AS UNSIGNED)'), 'asc')
-																																													->get();
+    public function searchOutput(SearchInterviewRequest $request)
+    {
+        $interviews = Interview::whereBetween('i_date', [$request->date1, $request->date2])
+            ->orderBy('i_date', 'asc');
 
-			 return view('interview.search', compact('interviews'));
-		}
+        return view('interview.search', compact('interviews'));
+    }
 }

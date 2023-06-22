@@ -13,7 +13,7 @@ class RequestsListController extends Controller
     public function requestsList(User $user)
     {
         if (Auth::check()) {
-            echo 'Auth user id: ' . Auth::user()->id . '<br>';
+            // echo 'Auth user id: ' . Auth::user()->id . '<br>';
 
             if ($user->isSalesAdmin(Auth::user()->id)) {
                 $interviews = Interview::where('s_status', 'Confirmed')
